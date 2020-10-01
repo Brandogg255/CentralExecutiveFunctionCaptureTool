@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class DetailActivity extends AppCompatActivity {
     private Button button;
@@ -22,7 +24,11 @@ public class DetailActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.detailContinue);
         mEditPersonName = (EditText) findViewById(R.id.editTextPersonName);
         mEditAge = (EditText) findViewById(R.id.editNumberAge);
-        //mEditGender = (EditText) findViewById(R.id.editTextGender);
+
+        Spinner mSpinnerGender = findViewById(R.id.spinnerGender);
+        String[] items = new String[]{"Male", "Female", "Other"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        mSpinnerGender.setAdapter(adapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,11 +3,14 @@ package com.u3192633.centralexecutivefunctioncapturetool;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -50,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         gestureListener.setActivity(this);
         gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
 
+        View decorView = getWindow().getDecorView();
+// Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
 
     }
@@ -74,4 +81,7 @@ public class MainActivity extends AppCompatActivity {
     public void displayMessage(String message) {
         textView.setText(message);
     }
+
+
+
 }

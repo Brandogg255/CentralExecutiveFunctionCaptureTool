@@ -7,7 +7,7 @@
     tools:context=".patternActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/readyButton"
         android:layout_width="299dp"
         android:layout_height="63dp"
         android:backgroundTint="#0066FF"

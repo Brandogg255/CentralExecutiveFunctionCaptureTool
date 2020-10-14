@@ -15,7 +15,9 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,11 +40,20 @@ public class patternActivity extends AppCompatActivity {
     ImageButton imgButton15;
     ImageButton imgButton16;
 
+    Button readyButton;
+
+    View textViewReminder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern2);
 
+        textViewReminder = (TextView)findViewById(R.id.textViewRemember);
+
+        readyButton = (Button)findViewById(R.id.readyButton);
+
+        //List each button in the pattern for class to access
         imgButton1 = (ImageButton)findViewById(R.id.imageButton1);
         imgButton2 = (ImageButton)findViewById(R.id.imageButton2);
         imgButton3 = (ImageButton)findViewById(R.id.imageButton3);
@@ -62,8 +73,13 @@ public class patternActivity extends AppCompatActivity {
 
         SamplePattern();
         //Set a listener for ready button to be pressed
-
-        //Start countdown
+        //Start Countdown
+        readyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startCountDown();
+            }
+        });
 
         // Reveal a blank pattern
 
@@ -180,6 +196,12 @@ public class patternActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void startCountDown() {
+        //Hide all views currently on page
+        textViewReminder.setVisibility(View.GONE);
+        
     }
 
     private void SamplePattern() {

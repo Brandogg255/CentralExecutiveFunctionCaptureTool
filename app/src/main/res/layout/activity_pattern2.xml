@@ -10,6 +10,7 @@
         android:id="@+id/readyButton"
         android:layout_width="299dp"
         android:layout_height="63dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#0066FF"
         android:fontFamily="@font/montserrat"
         android:text="Ready"
@@ -17,9 +18,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.822" />
+        app:layout_constraintTop_toBottomOf="@+id/layout2"
+        app:layout_constraintVertical_bias="0.012" />
 
     <Button
         android:id="@+id/continueButton"
@@ -54,25 +56,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout2"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="1000px"
+        android:layout_height="1000px"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRemember">
 
-        <com.u3192633.centralexecutivefunctioncapturetool.SimpleDrawingView
-            android:id="@+id/simpleDrawingView"
-            android:layout_width="340dp"
-            android:layout_height="340dp" />
-
         <ImageButton
             android:id="@+id/imageButton1"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="280dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginTop="55px"
+            android:layout_marginEnd="795px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -82,11 +78,10 @@
 
         <ImageButton
             android:id="@+id/imageButton5"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="280dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginTop="300px"
+            android:layout_marginEnd="795px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -96,11 +91,10 @@
 
         <ImageButton
             android:id="@+id/imageButton9"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="201dp"
-            android:layout_marginEnd="280dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginTop="552px"
+            android:layout_marginEnd="795px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -110,11 +104,10 @@
 
         <ImageButton
             android:id="@+id/imageButton13"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="290dp"
-            android:layout_marginEnd="280dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginTop="802px"
+            android:layout_marginEnd="795px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -124,11 +117,11 @@
 
         <ImageButton
             android:id="@+id/imageButton4"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="287dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="795px"
+            android:layout_marginTop="55px"
+            android:layout_marginEnd="0px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -138,11 +131,11 @@
 
         <ImageButton
             android:id="@+id/imageButton8"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="287dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="795px"
+            android:layout_marginTop="300px"
+            android:layout_marginEnd="0px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -152,11 +145,11 @@
 
         <ImageButton
             android:id="@+id/imageButton12"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="287dp"
-            android:layout_marginTop="201dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="795px"
+            android:layout_marginTop="552px"
+            android:layout_marginEnd="0px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -166,11 +159,11 @@
 
         <ImageButton
             android:id="@+id/imageButton16"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="287dp"
-            android:layout_marginTop="290dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="795px"
+            android:layout_marginTop="802px"
+            android:layout_marginEnd="0px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -180,11 +173,11 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="166dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="420px"
+            android:layout_marginTop="55px"
+            android:layout_marginEnd="680px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -194,11 +187,11 @@
 
         <ImageButton
             android:id="@+id/imageButton6"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="166dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="420px"
+            android:layout_marginTop="300px"
+            android:layout_marginEnd="680px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -208,11 +201,11 @@
 
         <ImageButton
             android:id="@+id/imageButton10"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="201dp"
-            android:layout_marginEnd="166dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="420px"
+            android:layout_marginTop="552px"
+            android:layout_marginEnd="680px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -222,11 +215,11 @@
 
         <ImageButton
             android:id="@+id/imageButton14"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="290dp"
-            android:layout_marginEnd="166dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="420px"
+            android:layout_marginTop="802px"
+            android:layout_marginEnd="680px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -236,11 +229,11 @@
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="680px"
+            android:layout_marginTop="55px"
+            android:layout_marginEnd="420px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -250,11 +243,11 @@
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="680px"
+            android:layout_marginTop="300px"
+            android:layout_marginEnd="420px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -264,11 +257,11 @@
 
         <ImageButton
             android:id="@+id/imageButton11"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="201dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="680px"
+            android:layout_marginTop="552px"
+            android:layout_marginEnd="420px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
@@ -278,17 +271,22 @@
 
         <ImageButton
             android:id="@+id/imageButton15"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="290dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="95px"
+            android:layout_height="95px"
+            android:layout_marginStart="680px"
+            android:layout_marginTop="802px"
+            android:layout_marginEnd="420px"
             android:background="#0000"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="@+id/simpleDrawingView"
             app:layout_constraintStart_toStartOf="@+id/simpleDrawingView"
             app:layout_constraintTop_toTopOf="@+id/simpleDrawingView"
             app:srcCompat="@drawable/node_unselected" />
+
+        <com.u3192633.centralexecutivefunctioncapturetool.SimpleDrawingView
+            android:id="@+id/simpleDrawingView"
+            android:layout_width="1000px"
+            android:layout_height="1000px" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

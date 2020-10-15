@@ -12,6 +12,7 @@ import android.graphics.Path;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +20,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class patternActivity extends AppCompatActivity {
@@ -49,6 +53,12 @@ public class patternActivity extends AppCompatActivity {
     TextView textViewCountdown;
 
     View simpleDrawingView;
+
+    //Timer Variables
+    long seconds = 0;
+    long millis = 0;
+    int mCount = 0;
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,120 +104,152 @@ public class patternActivity extends AppCompatActivity {
         // Reveal a blank pattern
         //Code is in countdown
 
+        //Code for continue button
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        //Timer code
+        timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    timerMethod();
+                }
+            }, 1,100);
+
+
         //Listerns for the buttons
-        imgButton1.setOnTouchListener(new View.OnTouchListener() {
+        imgButton1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton1.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 1 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton2.setOnTouchListener(new View.OnTouchListener() {
+        imgButton2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton2.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 2 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton3.setOnTouchListener(new View.OnTouchListener() {
+        imgButton3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton3.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 3 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton4.setOnTouchListener(new View.OnTouchListener() {
+        imgButton4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton4.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 4 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton5.setOnTouchListener(new View.OnTouchListener() {
+        imgButton5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton5.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 5 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton6.setOnTouchListener(new View.OnTouchListener() {
+        imgButton6.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton6.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 6 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton7.setOnTouchListener(new View.OnTouchListener() {
+        imgButton7.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton7.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 7 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton8.setOnTouchListener(new View.OnTouchListener() {
+        imgButton8.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton8.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 8 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton9.setOnTouchListener(new View.OnTouchListener() {
+        imgButton9.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton9.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 9 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton10.setOnTouchListener(new View.OnTouchListener() {
+        imgButton10.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton10.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 10 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton11.setOnTouchListener(new View.OnTouchListener() {
+        imgButton11.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton11.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 11 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton12.setOnTouchListener(new View.OnTouchListener() {
+        imgButton12.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton12.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 12 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton13.setOnTouchListener(new View.OnTouchListener() {
+        imgButton13.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                    imgButton13.setImageResource(R.drawable.node_selected);
-                return false;
+            public void onClick(View view) {
+                imgButton13.setImageResource(R.drawable.node_selected);
+                Log.d("Time", "Button 13 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton14.setOnTouchListener(new View.OnTouchListener() {
+        imgButton14.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton14.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 14 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton15.setOnTouchListener(new View.OnTouchListener() {
+        imgButton15.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton15.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 15 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
-        imgButton16.setOnTouchListener(new View.OnTouchListener() {
+        imgButton16.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
                 imgButton16.setImageResource(R.drawable.node_selected);
-                return false;
+                Log.d("Time", "Button 16 Time value in seconds "+ seconds + ":" + mCount);
             }
         });
     }
+
+    private void timerMethod(){
+        this.runOnUiThread(generate);
+    }
+    private Runnable generate = new Runnable() {
+        @Override
+        public void run() {
+            mCount++;
+            if (mCount == 10) {
+                mCount = 0;
+                seconds++;
+            }
+        }
+    };
 
     private void showPattern() {
         imgButton1.setVisibility(View.VISIBLE);
@@ -280,38 +322,40 @@ public class patternActivity extends AppCompatActivity {
                     public void run() {
                         textViewCountdown.setText("5");
                     }
-                }, 500);
+                }, 100);
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         textViewCountdown.setText("4");
                     }
-                }, 1500);
+                }, 1100);
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         textViewCountdown.setText("3");
                     }
-                }, 2500);
+                }, 2100);
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         textViewCountdown.setText("2");
                     }
-                }, 3500);
+                }, 3100);
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         textViewCountdown.setText("1");
                     }
-                }, 4500);
+                }, 4100);
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         textViewCountdown.setVisibility(View.INVISIBLE);
                         showPattern();
+                        seconds = 0;
+                        mCount = 0;
                     }
-                }, 5500);
+                }, 5100);
             }
         }, 500);
     }
@@ -363,6 +407,6 @@ public class patternActivity extends AppCompatActivity {
                     }
                 }, 4000);
             }
-        }, 500); //Millisecond 500 delay
+        }, 100); //Millisecond 500 delay
     }
 }

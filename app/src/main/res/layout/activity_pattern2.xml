@@ -21,6 +21,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.822" />
 
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="299dp"
+        android:layout_height="63dp"
+        android:backgroundTint="#0066FF"
+        android:fontFamily="@font/montserrat"
+        android:text="Continue"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.822" />
+
     <TextView
         android:id="@+id/textViewRemember"
         android:layout_width="340dp"
@@ -273,6 +289,25 @@
             app:layout_constraintStart_toStartOf="@+id/simpleDrawingView"
             app:layout_constraintTop_toTopOf="@+id/simpleDrawingView"
             app:srcCompat="@drawable/node_unselected" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textViewCountdown"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="150dp"
+        android:clickable="false"
+        android:text="5"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

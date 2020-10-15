@@ -23,6 +23,8 @@ import java.util.concurrent.TimeUnit;
 
 public class patternActivity extends AppCompatActivity {
 
+    boolean isPaused = true;
+
     ImageButton imgButton1;
     ImageButton imgButton2;
     ImageButton imgButton3;
@@ -41,8 +43,12 @@ public class patternActivity extends AppCompatActivity {
     ImageButton imgButton16;
 
     Button readyButton;
+    Button continueButton;
 
     View textViewReminder;
+    TextView textViewCountdown;
+
+    View simpleDrawingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +56,12 @@ public class patternActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pattern2);
 
         textViewReminder = (TextView)findViewById(R.id.textViewRemember);
+        textViewCountdown = (TextView)findViewById(R.id.textViewCountdown);
 
         readyButton = (Button)findViewById(R.id.readyButton);
+        continueButton = (Button)findViewById(R.id.continueButton);
+
+        simpleDrawingView = (View)findViewById(R.id.simpleDrawingView);
 
         //List each button in the pattern for class to access
         imgButton1 = (ImageButton)findViewById(R.id.imageButton1);
@@ -82,6 +92,7 @@ public class patternActivity extends AppCompatActivity {
         });
 
         // Reveal a blank pattern
+        //Code is in countdown
 
         //Listerns for the buttons
         imgButton1.setOnTouchListener(new View.OnTouchListener() {
@@ -198,10 +209,111 @@ public class patternActivity extends AppCompatActivity {
         });
     }
 
+    private void showPattern() {
+        imgButton1.setVisibility(View.VISIBLE);
+        imgButton2.setVisibility(View.VISIBLE);
+        imgButton3.setVisibility(View.VISIBLE);
+        imgButton4.setVisibility(View.VISIBLE);
+        imgButton5.setVisibility(View.VISIBLE);
+        imgButton6.setVisibility(View.VISIBLE);
+        imgButton7.setVisibility(View.VISIBLE);
+        imgButton8.setVisibility(View.VISIBLE);
+        imgButton9.setVisibility(View.VISIBLE);
+        imgButton10.setVisibility(View.VISIBLE);
+        imgButton11.setVisibility(View.VISIBLE);
+        imgButton12.setVisibility(View.VISIBLE);
+        imgButton13.setVisibility(View.VISIBLE);
+        imgButton14.setVisibility(View.VISIBLE);
+        imgButton15.setVisibility(View.VISIBLE);
+        imgButton16.setVisibility(View.VISIBLE);
+        simpleDrawingView.setVisibility(View.VISIBLE);
+        textViewReminder.setVisibility(View.INVISIBLE);
+        continueButton.setVisibility(View.VISIBLE);
+        //Set all Img Buttons to Unselected ready for the user to select the pattern
+        imgButton1.setImageResource(R.drawable.node_unselected);
+        imgButton2.setImageResource(R.drawable.node_unselected);
+        imgButton3.setImageResource(R.drawable.node_unselected);
+        imgButton4.setImageResource(R.drawable.node_unselected);
+        imgButton5.setImageResource(R.drawable.node_unselected);
+        imgButton6.setImageResource(R.drawable.node_unselected);
+        imgButton7.setImageResource(R.drawable.node_unselected);
+        imgButton8.setImageResource(R.drawable.node_unselected);
+        imgButton9.setImageResource(R.drawable.node_unselected);
+        imgButton10.setImageResource(R.drawable.node_unselected);
+        imgButton11.setImageResource(R.drawable.node_unselected);
+        imgButton12.setImageResource(R.drawable.node_unselected);
+        imgButton13.setImageResource(R.drawable.node_unselected);
+        imgButton14.setImageResource(R.drawable.node_unselected);
+        imgButton15.setImageResource(R.drawable.node_unselected);
+        imgButton16.setImageResource(R.drawable.node_unselected);
+    }
+
     private void startCountDown() {
         //Hide all views currently on page
         textViewReminder.setVisibility(View.GONE);
-        
+        imgButton1.setVisibility(View.GONE);
+        imgButton2.setVisibility(View.GONE);
+        imgButton3.setVisibility(View.GONE);
+        imgButton4.setVisibility(View.GONE);
+        imgButton5.setVisibility(View.GONE);
+        imgButton6.setVisibility(View.GONE);
+        imgButton7.setVisibility(View.GONE);
+        imgButton8.setVisibility(View.GONE);
+        imgButton9.setVisibility(View.GONE);
+        imgButton10.setVisibility(View.GONE);
+        imgButton11.setVisibility(View.GONE);
+        imgButton12.setVisibility(View.GONE);
+        imgButton13.setVisibility(View.GONE);
+        imgButton14.setVisibility(View.GONE);
+        imgButton15.setVisibility(View.GONE);
+        imgButton16.setVisibility(View.GONE);
+        simpleDrawingView.setVisibility(View.GONE);
+        readyButton.setVisibility(View.GONE);
+
+        //Start the countdown
+        textViewCountdown.setVisibility(View.VISIBLE);
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setText("5");
+                    }
+                }, 500);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setText("4");
+                    }
+                }, 1500);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setText("3");
+                    }
+                }, 2500);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setText("2");
+                    }
+                }, 3500);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setText("1");
+                    }
+                }, 4500);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textViewCountdown.setVisibility(View.INVISIBLE);
+                        showPattern();
+                    }
+                }, 5500);
+            }
+        }, 500);
     }
 
     private void SamplePattern() {

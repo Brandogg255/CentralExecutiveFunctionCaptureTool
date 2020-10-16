@@ -3,6 +3,7 @@ package com.u3192633.centralexecutivefunctioncapturetool;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,11 +17,13 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -59,6 +62,9 @@ public class patternActivity extends AppCompatActivity {
     long millis = 0;
     int mCount = 0;
     Timer timer;
+
+    //Counter for random patterns
+    int z = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +114,12 @@ public class patternActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (z++ < 4) {
+                    startCountDown();
+                    Log.d("Count", Integer.toString(z));
+                } else {
+                    openResults();
+                }
             }
         });
 
@@ -237,6 +248,11 @@ public class patternActivity extends AppCompatActivity {
         });
     }
 
+    private void openResults() {
+        Intent intent = new Intent(this, resultsActivity.class);
+        startActivity(intent);
+    }
+
     private void timerMethod(){
         this.runOnUiThread(generate);
     }
@@ -292,6 +308,7 @@ public class patternActivity extends AppCompatActivity {
 
     private void startCountDown() {
         //Hide all views currently on page
+        textViewCountdown.setText("5");
         textViewReminder.setVisibility(View.GONE);
         imgButton1.setVisibility(View.GONE);
         imgButton2.setVisibility(View.GONE);
@@ -357,11 +374,500 @@ public class patternActivity extends AppCompatActivity {
                     }
                 }, 5100);
             }
-        }, 500);
+        }, 100);
     }
 
     private void SamplePattern() {
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+        final int min = 0;
+        final int max = 10;
+        final int random = new Random().nextInt((max - min) + 1) + min;
+        Log.d("Number", Integer.toString(random));
+        switch (random) {
+            //Difficulty 1 Pattern 1
+            case 1:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton15.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                    }
+                }, 500);
+                break;
+            case 2:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                    }
+                }, 500);
+                break;
+            //Difficulty 2 Pattern 1
+            case 3:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton2.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                    }
+                }, 500);
+                break;
+            case 4:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton8.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton2.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                    }
+                }, 500);
+                break;
+            //Difficulty 3 Pattern 1
+            case 5:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton16.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton12.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton3.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton4.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                    }
+                }, 500);
+                break;
+            case 6:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton13.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton14.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton12.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton16.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                    }
+                }, 500);
+                break;
+            //Difficulty 4 Pattern 1
+            case 7:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton13.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton14.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton12.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton8.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton4.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5000);
+                    }
+                }, 500);
+                break;
+            case 8:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton1.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton5.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton14.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton15.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton16.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5000);
+                    }
+                }, 500);
+                break;
+            //Difficulty 5 Pattern 1
+            case 9:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton16.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton15.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton14.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton8.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton4.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton3.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton2.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 6000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton5.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 6500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 7000);
+                    }
+                }, 500);
+                break;
+            case 10:
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton13.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 1500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton5.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton6.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 2500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton10.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton11.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 3500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton15.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton16.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 4500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton8.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton7.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 5500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton3.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 6000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton4.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 6500);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                            }
+                        }, 7000);
+                    }
+                }, 500);
+                break;
+        }
+        /*new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -407,6 +913,6 @@ public class patternActivity extends AppCompatActivity {
                     }
                 }, 4000);
             }
-        }, 100); //Millisecond 500 delay
+        }, 100); //Millisecond 500 delay*/
     }
 }

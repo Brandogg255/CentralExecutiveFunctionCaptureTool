@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".patternActivity"></activity>
+        <activity android:name=".resultsActivity"></activity>
+        <activity android:name=".patternActivity" />
         <activity
             android:name=".PopActivity"
             android:theme="@style/AppTheme.PopMe" />

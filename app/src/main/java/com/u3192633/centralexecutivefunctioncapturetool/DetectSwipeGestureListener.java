@@ -4,19 +4,19 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.content.Intent;
 
-
+// Swiping Gesture Function
 import androidx.constraintlayout.widget.ConstraintSet;
 
 public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureListener {
 
-    private static int MIN_SWIPE_DISTANCE_X = 50;
+    // Declaring the Y axis swipe Gesture
     private static int MIN_SWIPE_DISTANCE_Y = 50;
 
-    private static int MAX_SWIPE_DISTANCE_X = 1000;
+
     private static int MAX_SWIPE_DISTANCE_Y = 1000;
 
 
-    //activity
+    // Main Activity
     private MainActivity activity = null;
 
 
@@ -29,7 +29,7 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
         this.activity = activity;
     }
 
-
+    // Swiping function, that triggers button activity once swipe is made
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         float deltaX = e1.getX() - e2.getX();
@@ -45,28 +45,8 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
             }
         }
 
-            // Test Swiping Code, not for in app use.
-        //------------------------------------------------//
-//        if (deltaXAbs >= MIN_SWIPE_DISTANCE_X && deltaXAbs <= MAX_SWIPE_DISTANCE_X) {
-//            if(deltaX > 0) {
-//                this.activity.displayMessage("Swiped right");
-//            } else {
-//                this.activity.displayMessage("Swiped left");
-//
-//            }
-//        }
-//
-//        //detect up down swipes
-//        if (deltaYAbs >= MIN_SWIPE_DISTANCE_Y && deltaYAbs <= MAX_SWIPE_DISTANCE_Y) {
-//            if(deltaY > 0) {
-//                this.activity.displayMessage("Swiped UP");
-//            } else {
-//                this.activity.displayMessage("Swiped Down");
-//
-//            }
-//        }
-
         return true;
+
     }
 
     @Override

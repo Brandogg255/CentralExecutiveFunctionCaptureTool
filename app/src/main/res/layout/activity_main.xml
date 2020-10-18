@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
 
+<!-- Layout of the main application home / landing page -->
 
     <TextView
         android:id="@+id/textView2"

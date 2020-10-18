@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -14,12 +15,16 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+// Main Activity function on Landing page
 public class MainActivity extends AppCompatActivity {
     private Button button;
     Button btn_sub;
     TextView textView;
     private GestureDetectorCompat gestureDetectorCompat = null;
+    private Button exitBtn;
 
+    // Button Activities such as clicking to next page and swiping up
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn_sub.setOnClickListener(new View.OnClickListener() {
             @Override
                     public void onClick(View v) {
-//                    Intent i = new Intent(getApplicationContext(), PopActivity.class);
-//                    startActivity(i);
+
                       openPopActivity();
             }
         });
@@ -54,12 +58,16 @@ public class MainActivity extends AppCompatActivity {
         gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
 
         View decorView = getWindow().getDecorView();
-// Hide the status bar.
+        // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
 
     }
+
+
+
+    // All open function buttons for swipe and tap buttons
 
     public void openPopActivity(){
         Intent intent = new Intent(this, PopActivity.class);
@@ -75,11 +83,6 @@ public class MainActivity extends AppCompatActivity {
     public void openDetailActivity() {
         Intent intent = new Intent(this, DetailActivity.class);
         startActivity(intent);
-    }
-
-
-    public void displayMessage(String message) {
-        textView.setText(message);
     }
 
 

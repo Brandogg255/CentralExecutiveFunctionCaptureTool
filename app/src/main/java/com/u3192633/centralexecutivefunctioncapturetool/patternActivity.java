@@ -79,6 +79,7 @@ public class patternActivity extends AppCompatActivity {
 
     //Database Storage for Button comparison
     String [] buttonEntries = new String[17];
+    String [] correctButtonEntries = new String[17];
     //Need to update amount of items in string
     String [] csvOutput = new String[23];
     int buttonCounter;
@@ -162,9 +163,8 @@ public class patternActivity extends AppCompatActivity {
                                     startCountDown();
                                 }
                             }, delayVar);
-
                         }
-                    }, 500);
+                    }, 750);
                     //startCountDown();
                     Log.d("Count", Integer.toString(z));
                 } else {

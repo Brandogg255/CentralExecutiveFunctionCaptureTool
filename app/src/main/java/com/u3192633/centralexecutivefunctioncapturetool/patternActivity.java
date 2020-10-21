@@ -3,6 +3,7 @@ package com.u3192633.centralexecutivefunctioncapturetool;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,6 +12,7 @@ import android.graphics.MaskFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -22,6 +24,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
@@ -48,7 +59,6 @@ public class patternActivity extends AppCompatActivity {
     ImageButton imgButton14;
     ImageButton imgButton15;
     ImageButton imgButton16;
-
     Button readyButton;
     Button continueButton;
 
@@ -62,14 +72,28 @@ public class patternActivity extends AppCompatActivity {
     long millis = 0;
     int mCount = 0;
     Timer timer;
+    int delayVar;
 
     //Counter for random patterns
     int z = 0;
+
+    //Database Storage for Button comparison
+    String [] buttonEntries = new String[17];
+    String [] correctButtonEntries = new String[17];
+    //Need to update amount of items in string
+    String [] csvOutput = new String[23];
+    int buttonCounter;
+    File fileNameButton;
+    int difficulty;
+    //String fileNameButton = "button.csv";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern2);
+
+        File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        fileNameButton = new File(directory, "button.csv");
 
         textViewReminder = (TextView)findViewById(R.id.textViewRemember);
         textViewCountdown = (TextView)findViewById(R.id.textViewCountdown);
@@ -114,8 +138,34 @@ public class patternActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    try {
+
+                        FileOutputStream fosb = new FileOutputStream(fileNameButton);
+                        OutputStreamWriter oswb = new OutputStreamWriter(fosb, StandardCharsets.UTF_8);
+                        CSVWriter writer = new CSVWriter(oswb);
+                        Log.d("path", fileNameButton.toString());
+                        Log.d("contents", buttonEntries.toString());
+
+                        writer.writeNext(buttonEntries);
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 if (z++ < 4) {
-                    startCountDown();
+                    showPattern();
+                    SamplePattern();
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    startCountDown();
+                                }
+                            }, delayVar);
+                        }
+                    }, 750);
+                    //startCountDown();
                     Log.d("Count", Integer.toString(z));
                 } else {
                     openResults();
@@ -139,6 +189,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton1.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 1 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton1";
+                buttonCounter++;
             }
         });
         imgButton2.setOnClickListener(new View.OnClickListener() {
@@ -146,6 +198,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton2.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 2 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton2";
+                buttonCounter++;
             }
         });
         imgButton3.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +207,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton3.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 3 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton3";
+                buttonCounter++;
             }
         });
         imgButton4.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +216,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton4.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 4 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton4";
+                buttonCounter++;
             }
         });
         imgButton5.setOnClickListener(new View.OnClickListener() {
@@ -167,6 +225,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton5.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 5 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton5";
+                buttonCounter++;
             }
         });
         imgButton6.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +234,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton6.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 6 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton6";
+                buttonCounter++;
             }
         });
         imgButton7.setOnClickListener(new View.OnClickListener() {
@@ -181,6 +243,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton7.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 7 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton7";
+                buttonCounter++;
             }
         });
         imgButton8.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +252,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton8.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 8 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton8";
+                buttonCounter++;
             }
         });
         imgButton9.setOnClickListener(new View.OnClickListener() {
@@ -195,6 +261,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton9.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 9 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton9";
+                buttonCounter++;
             }
         });
         imgButton10.setOnClickListener(new View.OnClickListener() {
@@ -202,6 +270,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton10.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 10 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton10";
+                buttonCounter++;
             }
         });
         imgButton11.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +279,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton11.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 11 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton11";
+                buttonCounter++;
             }
         });
         imgButton12.setOnClickListener(new View.OnClickListener() {
@@ -216,6 +288,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton12.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 12 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton12";
+                buttonCounter++;
             }
         });
         imgButton13.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +297,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton13.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 13 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton13";
+                buttonCounter++;
             }
         });
         imgButton14.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +306,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton14.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 14 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton14";
+                buttonCounter++;
             }
         });
         imgButton15.setOnClickListener(new View.OnClickListener() {
@@ -237,6 +315,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton15.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 15 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton15";
+                buttonCounter++;
             }
         });
         imgButton16.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +324,8 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton16.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 16 Time value in seconds "+ seconds + ":" + mCount);
+                buttonEntries[buttonCounter] = "imgButton16";
+                buttonCounter++;
             }
         });
     }
@@ -307,6 +389,9 @@ public class patternActivity extends AppCompatActivity {
     }
 
     private void startCountDown() {
+        //Reset variables to 0
+        buttonCounter = 0;
+
         //Hide all views currently on page
         textViewCountdown.setText("5");
         textViewReminder.setVisibility(View.GONE);
@@ -385,6 +470,8 @@ public class patternActivity extends AppCompatActivity {
         switch (random) {
             //Difficulty 1 Pattern 1
             case 1:
+                difficulty = 1;
+                delayVar = 3500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -404,6 +491,8 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
             case 2:
+                difficulty = 1;
+                delayVar = 3500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -424,6 +513,8 @@ public class patternActivity extends AppCompatActivity {
                 break;
             //Difficulty 2 Pattern 1
             case 3:
+                difficulty = 2;
+                delayVar = 4500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -455,6 +546,8 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
             case 4:
+                difficulty = 2;
+                delayVar = 4500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -487,6 +580,8 @@ public class patternActivity extends AppCompatActivity {
                 break;
             //Difficulty 3 Pattern 1
             case 5:
+                difficulty = 3;
+                delayVar = 5500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -530,6 +625,8 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
             case 6:
+                difficulty = 3;
+                delayVar = 5500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -574,6 +671,8 @@ public class patternActivity extends AppCompatActivity {
                 break;
             //Difficulty 4 Pattern 1
             case 7:
+                difficulty = 4;
+                delayVar = 6500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -635,6 +734,8 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
             case 8:
+                difficulty = 4;
+                delayVar = 6500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -697,6 +798,8 @@ public class patternActivity extends AppCompatActivity {
                 break;
             //Difficulty 5 Pattern 1
             case 9:
+                difficulty = 5;
+                delayVar = 8500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -782,6 +885,8 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
             case 10:
+                difficulty = 5;
+                delayVar = 8500;
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -867,52 +972,5 @@ public class patternActivity extends AppCompatActivity {
                 }, 500);
                 break;
         }
-        /*new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton1.setImageResource(R.drawable.node_selected);
-                    }
-                }, 1000);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton2.setImageResource(R.drawable.node_selected);
-                    }
-                }, 1500);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton6.setImageResource(R.drawable.node_selected);
-                    }
-                }, 2000);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton10.setImageResource(R.drawable.node_selected);
-                    }
-                }, 2500);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton11.setImageResource(R.drawable.node_selected);
-                    }
-                }, 3000);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton12.setImageResource(R.drawable.node_selected);
-                    }
-                }, 3500);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgButton8.setImageResource(R.drawable.node_selected);
-                    }
-                }, 4000);
-            }
-        }, 100); //Millisecond 500 delay*/
     }
 }

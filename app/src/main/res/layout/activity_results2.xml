@@ -87,7 +87,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/secondsResults"
         android:layout_width="301dp"
         android:layout_height="40dp"
         android:fontFamily="@font/montserrat"
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.628" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/accuracyResults"
         android:layout_width="250dp"
         android:layout_height="46dp"
         android:fontFamily="@font/montserrat"
@@ -129,8 +129,8 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629" />
+        app:layout_constraintVertical_bias="0.626" />
 </androidx.constraintlayout.widget.ConstraintLayout>

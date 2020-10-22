@@ -44,7 +44,7 @@ public class PopActivity extends Activity {
 
         final Context context = this;
 
-        exitBtn = (Button) findViewById(R.id.exitBtn);
+        /*exitBtn = (Button) findViewById(R.id.exitBtn);
 
         exitBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -55,7 +55,7 @@ public class PopActivity extends Activity {
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
 
     }
 

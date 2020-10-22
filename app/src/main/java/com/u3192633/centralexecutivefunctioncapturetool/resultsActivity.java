@@ -3,6 +3,7 @@ package com.u3192633.centralexecutivefunctioncapturetool;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class resultsActivity extends AppCompatActivity {
@@ -15,9 +16,9 @@ public class resultsActivity extends AppCompatActivity {
     public String[] pattern3;
     public String[] pattern4;
     public String[] pattern5;
-    public int totalNodesCorrect;
+    public double totalNodesCorrect;
     public int totalNodesIncorrect;
-    public int totalNodes;
+    public double totalNodes;
     public int correctPatterns;
     public int incorrectPatterns;
 
@@ -26,7 +27,7 @@ public class resultsActivity extends AppCompatActivity {
     TextView secondsText;
     TextView accuracyText;
 
-    float accuracy;
+    double accuracy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +55,11 @@ public class resultsActivity extends AppCompatActivity {
         secondsText = (TextView)findViewById(R.id.secondsResults);
         accuracyText = (TextView)findViewById(R.id.accuracyResults);
 
-        scoreText.setText(Integer.toString(totalNodesCorrect));
-        totalScoreText.setText("Out of " + Integer.toString(totalNodes));
+        scoreText.setText(Double.toString(totalNodesCorrect));
+        totalScoreText.setText("Out of " + Double.toString(totalNodes));
 
-
-        accuracy = totalNodesCorrect/totalNodes;
+        accuracy = (totalNodesCorrect/totalNodes)*100;
+        accuracy = Math.round(accuracy);
         accuracyText.setText(accuracy + "%");
     }
 }

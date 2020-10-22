@@ -177,6 +177,9 @@ public class patternActivity extends AppCompatActivity {
                 int arrayLength = correctButtonEntries.length;
                 totalButtons = arrayLength + totalButtons;
                 for (int x = 0; x < arrayLength; x++) {
+                    if (buttonEntries[x] == null) {
+                        buttonEntries[x] = "";
+                    }
                     if (buttonEntries[x].equals(correctButtonEntries[x])) {
                         Log.d("Message", "Correct Button " + x);
                         buttonsCorrect++;
@@ -248,7 +251,7 @@ public class patternActivity extends AppCompatActivity {
             }, 1,100);
 
 
-        //Listerns for the buttons
+        //Listens for the buttons
         imgButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

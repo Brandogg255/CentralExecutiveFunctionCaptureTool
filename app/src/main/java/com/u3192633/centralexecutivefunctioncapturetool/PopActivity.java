@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
-
+// Pop up menu when user swipes up on the landing page
 public class PopActivity extends Activity {
 
     private Button exitBtn;
@@ -40,23 +40,5 @@ public class PopActivity extends Activity {
 
     }
 
-    public void openMainActivity() {
-
-        final Context context = this;
-
-        /*exitBtn = (Button) findViewById(R.id.exitBtn);
-
-        exitBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });*/
-
-    }
 
 }

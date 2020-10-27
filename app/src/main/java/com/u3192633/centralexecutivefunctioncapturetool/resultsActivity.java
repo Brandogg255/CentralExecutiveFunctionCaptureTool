@@ -55,11 +55,15 @@ public class resultsActivity extends AppCompatActivity {
         secondsText = (TextView)findViewById(R.id.secondsResults);
         accuracyText = (TextView)findViewById(R.id.accuracyResults);
 
-        scoreText.setText(Double.toString(totalNodesCorrect));
-        totalScoreText.setText("Out of " + Double.toString(totalNodes));
+        Log.d("Time", "Pattern 1: Time 1" + pattern1[0]);
 
         accuracy = (totalNodesCorrect/totalNodes)*100;
         accuracy = Math.round(accuracy);
         accuracyText.setText(accuracy + "%");
+
+        int totalNodesCorrectInt = (int) totalNodesCorrect;
+        scoreText.setText(Integer.toString(totalNodesCorrectInt));
+        int totalNodesInt = (int) totalNodes;
+        totalScoreText.setText("Out of " + Integer.toString(totalNodesInt));
     }
 }

@@ -257,7 +257,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton1.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 1 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton1";
                 buttonCounter++;
             }
@@ -267,7 +267,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton2.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 2 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton2";
                 buttonCounter++;
             }
@@ -277,7 +277,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton3.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 3 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton3";
                 buttonCounter++;
             }
@@ -287,7 +287,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton4.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 4 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton4";
                 buttonCounter++;
             }
@@ -297,7 +297,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton5.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 5 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton5";
                 buttonCounter++;
             }
@@ -307,7 +307,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton6.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 6 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton6";
                 buttonCounter++;
             }
@@ -317,7 +317,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton7.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 7 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton7";
                 buttonCounter++;
             }
@@ -327,7 +327,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton8.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 8 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton8";
                 buttonCounter++;
             }
@@ -337,7 +337,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton9.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 9 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton9";
                 buttonCounter++;
             }
@@ -347,7 +347,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton10.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 10 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton10";
                 buttonCounter++;
             }
@@ -357,7 +357,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton11.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 11 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton11";
                 buttonCounter++;
             }
@@ -367,7 +367,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton12.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 12 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton12";
                 buttonCounter++;
             }
@@ -377,7 +377,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton13.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 13 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton13";
                 buttonCounter++;
             }
@@ -387,7 +387,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton14.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 14 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton14";
                 buttonCounter++;
             }
@@ -397,7 +397,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton15.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 15 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton15";
                 buttonCounter++;
             }
@@ -407,7 +407,7 @@ public class patternActivity extends AppCompatActivity {
             public void onClick(View view) {
                 imgButton16.setImageResource(R.drawable.node_selected);
                 Log.d("Time", "Button 16 Time value in seconds "+ seconds + ":" + mCount);
-                buttonTimes[buttonCounter] = (seconds + ":" + mCount);
+                buttonTimes[buttonCounter] = (seconds + "." + mCount);
                 buttonEntries[buttonCounter] = "imgButton16";
                 buttonCounter++;
             }

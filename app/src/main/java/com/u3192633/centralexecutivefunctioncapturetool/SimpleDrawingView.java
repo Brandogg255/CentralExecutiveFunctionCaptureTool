@@ -19,7 +19,7 @@ public class SimpleDrawingView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         // Row 1 of the pattern
-        canvas.drawLine(150,100,325,100, drawPaint);
+        /*canvas.drawLine(150,100,325,100, drawPaint);
         canvas.drawLine(420,100,582,100, drawPaint);
         canvas.drawLine(677,100,848,100, drawPaint);
 
@@ -51,7 +51,7 @@ public class SimpleDrawingView extends View {
         // Row 4 of the pattern
         canvas.drawLine(150,850,325,850, drawPaint);
         canvas.drawLine(420,850,582,850, drawPaint);
-        canvas.drawLine(677,850,848,850, drawPaint);
+        canvas.drawLine(677,850,848,850, drawPaint);*/
     }
 
     public SimpleDrawingView(Context context, AttributeSet attrs) {

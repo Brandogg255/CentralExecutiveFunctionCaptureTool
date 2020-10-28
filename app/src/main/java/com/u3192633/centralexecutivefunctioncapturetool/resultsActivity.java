@@ -59,11 +59,11 @@ public class resultsActivity extends AppCompatActivity {
 
         accuracy = (totalNodesCorrect/totalNodes)*100;
         accuracy = Math.round(accuracy);
-        accuracyText.setText(accuracy + "%");
+        accuracyText.setText(accuracy + "% accuracy");
 
         int totalNodesCorrectInt = (int) totalNodesCorrect;
         scoreText.setText(Integer.toString(totalNodesCorrectInt));
         int totalNodesInt = (int) totalNodes;
-        totalScoreText.setText("Out of " + Integer.toString(totalNodesInt));
+        totalScoreText.setText("out of " + Integer.toString(totalNodesInt));
     }
 }

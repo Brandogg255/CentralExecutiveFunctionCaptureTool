@@ -297,7 +297,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:clickable="false"
-        android:fontFamily="@font/montserrat"
+        android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal"
         android:text="5"
         android:textAlignment="center"

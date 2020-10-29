@@ -222,7 +222,7 @@ public class patternActivity extends AppCompatActivity {
                 if (z++ < 4) {
                     showPattern();
                     SamplePattern();
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    /*new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -232,7 +232,7 @@ public class patternActivity extends AppCompatActivity {
                                 }
                             }, delayVar);
                         }
-                    }, 750);
+                    }, 750);*/
                     //startCountDown();
                     Log.d("Count", Integer.toString(z));
                 } else {
@@ -593,7 +593,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton15.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[1] = "imgButton15";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 1500);
@@ -621,7 +621,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton9.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[1] = "imgButton9";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 1500);
@@ -664,7 +664,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton9.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[3] = "imgButton9";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 2500);
@@ -706,7 +706,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton2.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[3] = "imgButton2";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 2500);
@@ -763,7 +763,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton4.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[5] = "imgButton4";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 3500);
@@ -819,7 +819,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton16.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[5] = "imgButton16";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 3500);
@@ -897,7 +897,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton4.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[8] = "imgButton4";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 5000);
@@ -974,7 +974,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton16.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[8] = "imgButton16";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 5000);
@@ -1080,7 +1080,7 @@ public class patternActivity extends AppCompatActivity {
                                 imgButton9.setImageResource(R.drawable.node_selected);
                                 correctButtonEntries[12] = "imgButton9";
                                 if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
+                                    readyButton.setVisibility(View.VISIBLE);
                                 }
                             }
                         }, 7000);
@@ -1155,40 +1155,47 @@ public class patternActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 imgButton8.setImageResource(R.drawable.node_selected);
-                                correctButtonEntries[8] = "imgButton8";
+                                correctButtonEntries[8] = "imgButton12";
                             }
                         }, 5000);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 imgButton7.setImageResource(R.drawable.node_selected);
-                                correctButtonEntries[9] = "imgButton7";
+                                correctButtonEntries[9] = "imgButton8";
                             }
                         }, 5500);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 imgButton3.setImageResource(R.drawable.node_selected);
-                                correctButtonEntries[10] = "imgButton3";
+                                correctButtonEntries[10] = "imgButton7";
                             }
                         }, 6000);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 imgButton4.setImageResource(R.drawable.node_selected);
-                                correctButtonEntries[11] = "imgButton4";
+                                correctButtonEntries[11] = "imgButton3";
                             }
                         }, 6500);
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 imgButton9.setImageResource(R.drawable.node_selected);
-                                correctButtonEntries[12] = "imgButton9";
-                                if (z > 0) {
-                                    continueButton.setVisibility(View.VISIBLE);
-                                }
+                                correctButtonEntries[12] = "imgButton4";
                             }
                         }, 7000);
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgButton9.setImageResource(R.drawable.node_selected);
+                                correctButtonEntries[12] = "imgButton9";
+                                if (z > 0) {
+                                    readyButton.setVisibility(View.VISIBLE);
+                                }
+                            }
+                        }, 7500);
                     }
                 }, 1500);
                 break;

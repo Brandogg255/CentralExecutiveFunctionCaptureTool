@@ -42,8 +42,8 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = new Intent(this, information.class);
 
         //Parse information from this screen forward to get to CSV file for data output
-        intent.putExtra("Name", mEditPersonName.toString());
-        intent.putExtra("Age", mEditAge.toString());
+        intent.putExtra("Name", mEditPersonName.getText().toString());
+        intent.putExtra("Age", mEditAge.getText().toString());
         intent.putExtra("Gender", mSpinnerGender.getSelectedItem().toString());
 
         startActivity(intent);

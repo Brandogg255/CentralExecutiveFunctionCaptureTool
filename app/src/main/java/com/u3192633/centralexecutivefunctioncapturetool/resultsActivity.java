@@ -3,8 +3,20 @@ package com.u3192633.centralexecutivefunctioncapturetool;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 
 public class resultsActivity extends AppCompatActivity {
 
@@ -21,11 +33,15 @@ public class resultsActivity extends AppCompatActivity {
     public double totalNodes;
     public int correctPatterns;
     public int incorrectPatterns;
+    public int testID;
+    Date currentTime;
 
     TextView scoreText;
     TextView totalScoreText;
     TextView secondsText;
     TextView accuracyText;
+
+    Button exportBtn;
 
     double accuracy;
 
@@ -35,9 +51,11 @@ public class resultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results2);
 
         //Gather and assign all information from the patterns to the declared variables
+        testID = new Random().nextInt((100000 - 0) + 1) + 0;
         name = getIntent().getStringExtra("Name");
         age = getIntent().getStringExtra("Age");
         gender = getIntent().getStringExtra("Gender");
+        currentTime = Calendar.getInstance().getTime();
         pattern1 = getIntent().getStringArrayExtra("Pattern 1");
         pattern2 = getIntent().getStringArrayExtra("Pattern 2");
         pattern3 = getIntent().getStringArrayExtra("Pattern 3");
@@ -54,6 +72,7 @@ public class resultsActivity extends AppCompatActivity {
         totalScoreText = (TextView)findViewById(R.id.textView19);
         secondsText = (TextView)findViewById(R.id.secondsResults);
         accuracyText = (TextView)findViewById(R.id.accuracyResults);
+        exportBtn = (Button)findViewById(R.id.exportBtn);
 
         Log.d("Time", "Pattern 1: Time 1" + pattern1[0]);
 
@@ -65,5 +84,44 @@ public class resultsActivity extends AppCompatActivity {
         scoreText.setText(Integer.toString(totalNodesCorrectInt));
         int totalNodesInt = (int) totalNodes;
         totalScoreText.setText("out of " + Integer.toString(totalNodesInt));
+
+        exportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fileName = "Data.csv";
+                String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator + fileName;
+                File f = new File(filePath);
+                CSVWriter writer;
+                //File exist
+                try {
+                    if(f.exists() && !f.isDirectory()){
+                        writer = new CSVWriter(new FileWriter(filePath, true));
+                    } else {
+                        writer = new CSVWriter(new FileWriter(filePath));
+                    }
+                    String[] data = getDataStringArray();
+
+                    writer.writeNext(data);
+                    writer.writeNext(pattern1);
+                    writer.writeNext(pattern2);
+                    writer.writeNext(pattern3);
+                    writer.writeNext(pattern4);
+                    writer.writeNext(pattern5);
+
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    public String[] getDataStringArray() {
+        String[] data = {Integer.toString(testID), name, age, gender, String.valueOf(currentTime),
+                String.valueOf(totalNodes), String.valueOf(totalNodesIncorrect),
+                String.valueOf(totalNodesCorrect), String.valueOf(correctPatterns),
+                String.valueOf(incorrectPatterns)};
+        return data;
     }
 }
